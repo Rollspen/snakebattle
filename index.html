@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛇霸天冲冲冲</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>蛇霸天冲冲冲</h1>
+            <div class="score-container">
+                分数: <span id="score">0</span> | 时间: <span id="timer">00:00</span> | 难度: <span id="level">Level 1</span>
+            </div>
+        </div>
+        
+        <div class="game-content">
+            <div class="player-status">
+                <h3>玩家状态</h3>
+                <div class="status-item">
+                    <span class="status-label">生命值:</span>
+                    <span id="healthBar" class="status-value">3</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">移动速度:</span>
+                    <span id="moveSpeed" class="status-value">1.0x</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">攻击力:</span>
+                    <span id="attackPower" class="status-value">1</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">弹道速度:</span>
+                    <span id="bulletSpeed" class="status-value">1.0x</span>
+                </div>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+        </div>
+
+        <div id="gameOver" class="game-over">
+            <h2>游戏结束!</h2>
+            <p>最终分数: <span id="finalScore">0</span></p>
+            <button id="restartButton">重新开始</button>
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
