@@ -78,40 +78,10 @@
 
 粒子系统为游戏提供视觉特效，如敌人被击败时的爆炸效果，增强游戏体验。
 
-## 安装与运行
+## 运行
 
-### 前提条件
+1. 在浏览器中访问 `https://snakebattle-seven.vercel.app/`
 
-- Node.js (推荐v14.0.0以上)
-- 现代浏览器 (Chrome, Firefox, Safari, Edge等)
-
-### 安装步骤
-
-1. 克隆仓库
-```bash
-git clone [仓库URL]
-cd [项目文件夹]
-```
-
-2. 安装依赖
-```bash
-npm install
-```
-
-3. 启动开发服务器
-```bash
-npm run dev
-# 或使用
-npx vite
-```
-
-4. 在浏览器中访问 `http://localhost:5173`
-
-### 构建生产版本
-
-```bash
-npm run build
-```
 
 ## 游戏控制
 
