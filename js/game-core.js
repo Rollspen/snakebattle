@@ -36,6 +36,7 @@ export class GameCore {
         this.enemySpawnTimer = null;
         this.bossSpawnTimer = null; // BOSS生成定时器
         this.gameStartTime = 0;
+        this.pauseStartTime = null; // 初始化暂停开始时间
         this.currentEnemySpeed = config.enemySpeed;
         this.gameTimer = null;
         this.foodCount = 0;
@@ -78,8 +79,19 @@ export class GameCore {
                     if (this.enemySpawnTimer) clearInterval(this.enemySpawnTimer);
                     if (this.bossSpawnTimer) clearInterval(this.bossSpawnTimer);
                     if (this.gameTimer) clearInterval(this.gameTimer);
+                    
+                    // 记录暂停时间
+                    this.pauseStartTime = Date.now();
                 } else {
                     this.pauseMenu.hide();
+                    
+                    // 计算暂停的时间并调整游戏开始时间
+                    if (this.pauseStartTime) {
+                        const pauseDuration = Date.now() - this.pauseStartTime;
+                        this.gameStartTime += pauseDuration; // 调整游戏开始时间，补偿暂停的时间
+                        console.log(`游戏暂停了${Math.floor(pauseDuration/1000)}秒，已调整游戏开始时间`);
+                    }
+                    
                     this.gameLoop = setInterval(() => this.gameStep(), this.currentSpeed);
                     this.enemySpawnTimer = setInterval(() => {
                         if (this.enemies.length < config.maxEnemies) {
